@@ -1,9 +1,8 @@
 import React, {ListForm} from 'react';
-import ReactDom from 'react-dom';
+import ReactDOM from 'react-dom';
 
-// import './Todo.css';
 import ToDoList from './components/TodoComponents/TodoList';
-
+// import './Todo.css';
 // import TodoForm from './components/TodoComponents/TodoForm';
 
 
@@ -42,13 +41,13 @@ class App extends React.Component {
   constructor() {
     super ();
     this.state = {
-      task: 'Task2Complete',
+      task: 'Task 2 Complete',
       todo
     };
   }
 
 
-  toggleTask =  id => {
+  toggleTodo =  id => {
     console.log(id);
 
     this.state ({
@@ -68,13 +67,13 @@ class App extends React.Component {
   };
 
   addTask = taskName => {
-    const newTask = {
+    const newTodo = {
       name: taskName,
       id: Date.now(),
       completed: false
     };
     this.setState({
-      todo: [...this.state.task, newTask]
+      todo: [...this.state.todo, newTodo]
     });
   };
 
@@ -88,17 +87,15 @@ class App extends React.Component {
       <div className ='App'>
         <div className = 'header'>
           <h1>To Do List</h1>
-          <ListForm addTask={this.addTask} />
+          <ListForm addTTodo={this.addTodo} />
         </div>
           <ToDoList
             todo = {this.state.todo}
-            toggleTask = {this.toggleTask}
+            toggleTodo = {this.toggleTodo}
         />
       </div>
     );
   }
 }
 
-const rootElement = document.getElementById('root');
-ReactDom.render(<App />, rootElement);
-
+export default App
